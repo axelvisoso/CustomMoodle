@@ -1,9 +1,10 @@
+package dataacess.imple;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dataacess.imple;
 
 import dataacess.StudentDAO;
 import java.util.ArrayList;
@@ -25,7 +26,7 @@ public class StudentDAOListImplel implements StudentDAO {
 
     @Override
     public List<Student> findAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return studentList;
     }
 
     @Override
@@ -37,6 +38,30 @@ public class StudentDAOListImplel implements StudentDAO {
         }
         return null;
     }
+
+    @Override
+    public Student findByLastName(String lastName) {
+        lastName = lastName.toLowerCase().trim();
+        for (Student student : studentList) {
+            if(student.getLastName().toLowerCase().contains(lastName)){
+                return student;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public void delete(Student student) {
+        studentList.remove(student);
+
+    }
+
+    @Override
+    public void update(Student student) {
+       int pos = studentList.indexOf(student);
+       studentList.set(pos, student);
+    }
+    
     
     
 }

@@ -5,9 +5,6 @@
  */
 package App;
 
-import bussineslogic.StudentBLO;
-import java.util.List;
-import model.Student;
 import view.StudentWindow;
 
 /**
@@ -37,4 +34,3 @@ public class App {
 
         }
     }
-}
